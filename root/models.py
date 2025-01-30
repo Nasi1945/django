@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
 
     
 
@@ -19,7 +18,7 @@ class Reporter(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='reporter',default= 'unknown.jpg')
     skills = models.ManyToManyField(Skills)
-    content = models.TextField(default='good teacher')
+    content = models.TextField(default='good reporter')
     twitter = models.CharField(max_length= 120,blank=True,null=True)
     instagram = models.CharField(max_length= 120,blank=True,null=True)
     facebook = models.CharField(max_length= 120,blank=True,null=True)
@@ -33,3 +32,12 @@ class Reporter(models.Model):
     
     class Mata:
         ordering = ('created_at',)
+        
+class Contactus(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    
+    def __str__(self):
+        return self.email
