@@ -53,10 +53,11 @@
           <li><a href={% url 'root:about' %}>About</a></li>
           <li><a href={% url 'blogs:blogs' %}>blogs</a></li>
           <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            {% for cat in category%}
             <ul>
+              {% for cat in category%}
               <li><a href={% url 'course:course' %}?catname={{cat.name}}>{{cat.name}}</a></li>
-            {% endfor %}
+              {% endfor %}
+            </ul>
           </li>
           <li><a href={% url 'root:contact' %}>Contact</a></li>
         </ul>
